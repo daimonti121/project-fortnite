@@ -1,38 +1,33 @@
 function GoodsItem(props) {
     const {
-        id,
-        name,
-        description,
+        displayName,
+        displayDescription,
         price,
-        full_background,
-        addToBasket = Function.prototype,
+        displayAssets,
     } = props;
+
+    const name = displayName || 'Без названия';
+    const description = displayDescription || 'Нет описания';
+    const priceValue = price?.regularPrice || 0;
+    const image = displayAssets?.[0]?.full_background || 'Нет картинки';
+
+    if (!displayDescription) {
+        return null
+    } 
 
     return (
         <div className='card'>
             <div className='card-image'>
-                <img src={full_background} alt={name} />
+                <img src={image} alt={name} />
+                
             </div>
             <div className='card-content'>
-                <span className='card-title'>{name}</span>
-                <p>{description}</p>
+                <p className='card-title'>{name}</p>
+                <p>{description}</p>               
             </div>
-            <div className='card-action'>
-                <button
-                    className='btn'
-                    onClick={() =>
-                        addToBasket({
-                            id,
-                            name,
-                            price,
-                        })
-                    }
-                >
-                    Купить
-                </button>
-                <span className='right' style={{ fontSize: '1.8rem' }}>
-                    {price} руб.
-                </span>
+            <div className='card-action' style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
+                <button className='btn'>Купить</button>
+                <span className='right'>{priceValue} грн.</span>
             </div>
         </div>
     );

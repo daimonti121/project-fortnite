@@ -75,6 +75,22 @@ nav {
   cursor: pointer;
 }
 
+.cart{
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+
+  cursor: pointer;
+  z-index: 5;
+  padding: 1rem;
+  max-height: max-content;
+}
+.cart-quantity {
+
+}
+
+
+
 @keyframes show {
   from {
     top: 70%;
