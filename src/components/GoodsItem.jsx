@@ -4,6 +4,8 @@ function GoodsItem(props) {
         displayDescription,
         price,
         displayAssets,
+        mainId,
+        onAddCart = Function.prototype,
     } = props;
 
     const name = displayName || 'Без названия';
@@ -26,7 +28,7 @@ function GoodsItem(props) {
                 <p>{description}</p>               
             </div>
             <div className='card-action' style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',}}>
-                <button className='btn'>Купить</button>
+                <button className='btn' onClick={() => onAddCart({mainId, name, price})} >Купить</button>
                 <span className='right'>{priceValue} грн.</span>
             </div>
         </div>
