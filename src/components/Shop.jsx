@@ -4,11 +4,13 @@ import { API_KEY, API_URL } from '../config';
 import { Preloader } from './Preloader';
 import { GoodsList } from './GoodList';
 import { Cart } from './Cart';
+import { BasketList } from './BasketList';
 
 function Shop() {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([]);
+    const [isBasket, setBasket] = useState(false);
 
     const onAddCart = (item) => {
         const itemIndex = order.findIndex(orderItem => orderItem.mainId === item.mainId)
@@ -52,6 +54,7 @@ function Shop() {
         <main className='container content'>
             <Cart quantity={order.length}/>
             {loading ? <Preloader /> : <GoodsList goods={goods} onAddCart={onAddCart}/>}
+            {isBasket && <BasketList order={order}/>}
         </main>
     );
 }
