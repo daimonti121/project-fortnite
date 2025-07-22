@@ -37,6 +37,10 @@ function Shop() {
         }
     }
 
+    const handleBasketShow = () => {
+        setBasket(!isBasket);
+    }
+
     useEffect(() => {
         fetch(API_URL, {
             headers: {
@@ -52,9 +56,9 @@ function Shop() {
 
     return (
         <main className='container content'>
-            <Cart quantity={order.length}/>
+            <Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
             {loading ? <Preloader /> : <GoodsList goods={goods} onAddCart={onAddCart}/>}
-            {isBasket && <BasketList order={order}/>}
+            {isBasket && <BasketList order={order} handleBasketShow={handleBasketShow}/>}
         </main>
     );
 }

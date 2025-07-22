@@ -76,6 +76,17 @@ nav {
   cursor: pointer;
 }
 
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  width: 50rem;
+  max-width: 95%;
+}
+
 .cart{
   position: fixed;
   bottom: 2rem;
