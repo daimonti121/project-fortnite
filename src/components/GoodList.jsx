@@ -3,7 +3,7 @@ import { GoodsItem } from "./GoodsItem";
 function GoodsList(props) {
     const {goods, onAddCart = Function.prototype} = props;
 
-    const newArr = goods.slice(70, 80);
+    const newArr = goods.slice(10, 80);
 
     if(!goods.length) {
         return <h3>Nothing here</h3>
