@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ShopContext } from "../Context";
+
 function BasketItem(props) {
     const {
         mainId,
@@ -8,6 +11,9 @@ function BasketItem(props) {
         onAddCart = Function.prototype,
         onRemoveCart = Function.prototype,
     } = props;
+
+    const {example} = useContext(ShopContext);
+    console.log(example);
 
     return (
         <li className='collection-item flex'>
