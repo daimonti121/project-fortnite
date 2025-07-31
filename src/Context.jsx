@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import { reducer } from "./reduser";
 
+// eslint-disable-next-line
 export const ShopContext = createContext();
 
 const initialState = {
@@ -27,7 +28,15 @@ export const ContextProvider = ({children}) => {
     };
 
     value.addCard = (item) => {
-        dispatch({type: 'ADD_TO_BASKET', payload: item});
+        dispatch({type: 'ADD_CART', payload: item});
+    }
+
+    value.removeCart = (item) => {
+        dispatch({type: 'REMOVE_CART', payload: item});
+    }
+
+    value.setGoods = (data) => {
+        dispatch({type: 'SET_GOODS', payload: data})
     }
 
     return (

@@ -1,17 +1,20 @@
+import { useContext } from 'react';
+import { ShopContext } from '../Context';
+
 import { GoodsItem } from "./GoodsItem";
 
-function GoodsList(props) {
-    const {goods, onAddCart = Function.prototype} = props;
+function GoodsList() {
+    const {goods = []} = useContext(ShopContext);
 
-    const newArr = goods.slice(10, 80);
+    // const newArr = goods.slice(10, 80);
 
     if(!goods.length) {
         return <h3>Nothing here</h3>
     }
 
     return <div className="goods">
-        {newArr.map(item => (
-            <GoodsItem key={item.mainId} {...item} onAddCart={onAddCart}/>
+        {goods.map(item => (
+            <GoodsItem key={item.mainId} {...item} />
         ))}
     </div>
 }
